@@ -1,0 +1,42 @@
+[
+  {
+    "id": "book_0001",
+    "title": "Clean Code",
+    "author": "Robert Martin",
+    "pages": 464,
+    "tag": "Programming",
+    "dateAdded": "2026-09-25",
+    "createdAt": "2026-09-25T12:30:00.000Z",
+    "updatedAt": "2026-09-25T12:30:00.000Z"
+  },
+  {
+    "id": "book_0002",
+    "title": "Design Patterns",
+    "author": "Erich Gamma",
+    "pages": 395,
+    "tag": "Architecture",
+    "dateAdded": "2026-09-23",
+    "createdAt": "2026-09-23T09:15:00.000Z",
+    "updatedAt": "2026-09-23T09:15:00.000Z"
+  },
+  {
+    "id": "book_0003",
+    "title": "Algorithms to Live By",
+    "author": "Brian Christian",
+    "pages": 352,
+    "tag": "Science",
+    "dateAdded": "2026-09-20",
+    "createdAt": "2026-09-20T08:00:00.000Z",
+    "updatedAt": "2026-09-20T08:00:00.000Z"
+  },
+  {
+    "id": "book_0004",
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "pages": 320,
+    "tag": "Productivity",
+    "dateAdded": "2026-09-28",
+    "createdAt": "2026-09-28T15:45:00.000Z",
+    "updatedAt": "2026-09-28T15:45:00.000Z"
+  }
+]

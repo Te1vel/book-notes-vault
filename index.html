@@ -58,7 +58,7 @@
             <h2>Search & Filter Vault</h2>
             <div class="search-controls">
                 <label for="search-input">Search:</label>
-                <input type="text" id="search-input" placeholder="search">
+                <input type="text" id="search-input" class="search-style">
                 <label><input type="checkbox" id="case-sensitive-toggle">Case Sensitive</label>
             </div>
             <p id="search-error" class="error-message" role="alert"></p>
@@ -69,9 +69,9 @@
             <div class="section-header">
                 <h2>Library Catalog</h2>
                 <div class="sort-controls">
-                    <button id="sort-date" aria-sort="none">Sort by Date</button>
-                    <button id="sort-titles" aria-sort="none">Sort by Title</button>
-                    <button id="sort-pages" aria-sort="none">Sort by Pages</button>
+                    <button id="sort-date" aria-sort="none" class="sort-btn">Sort by Date</button>
+                    <button id="sort-titles" aria-sort="none" class="sort-btn">Sort by Title</button>
+                    <button id="sort-pages" aria-sort="none" class="sort-btn">Sort by Pages</button>
                 </div>
             </div>
             <div class="table-responsive">
@@ -99,17 +99,17 @@
             <form id="record-form" novalidate>
                 <input type="hidden" id="record-id">
                 <div class="form-group">
-                    <label for="title">Title <span aria-hidden="true">*</span></label>
+                    <label for="title">Title <span aria-hidden="true"></span></label>
                     <input type="text" id="title" required aria-describedby="title-error">
                     <small id="title-error" class="error-message"></small>
                 </div>
                 <div class="form-group">
-                    <label for="author">Author <span aria-hidden="true">*</span></label>
+                    <label for="author">Author <span aria-hidden="true"></span></label>
                     <input type="text" id="author" required aria-describedby="author-error">
                     <small id="title-error" class="error-message"></small>
                 </div>
                 <div class="form-group">
-                    <label for="pages">Pages <span aria-hidden="true">*</span></label>
+                    <label for="pages">Pages <span aria-hidden="true"></span></label>
                     <select id="tag" required>
                         <option value="Programming">Programming</option>
                         <option value="Architecture">Architecture</option>
@@ -120,8 +120,8 @@
                     </select>
                     <small id="tag-error" class="error-message"></small>
                 </div>
-                <div class="form-group">
-                    <label for="dateAdded">Date Added <span aria-hidden="true">*</span></label>
+                <div class="form-group" id="form-groupdate">
+                    <label for="dateAdded">Date Added <span aria-hidden="true"></span></label>
                     <input type="date" id="dateAdded" required aria-describedby="date-error">
                     <small id="date-error" class="error-message"></small>
                 </div>
@@ -152,11 +152,12 @@
             <p id="settings-msg" class="success-message" role="status"></p>
         </section>
         
+        <!-- about section -->
         <section id="about" class="card-section">
             <h2>About</h2>
             <p>Book & Notes Vault built with semantic HTML, vanilla JavaScript modules, and responsive CSS.</p>
             <ul>
-                <li>Github: <a href="" target="_blank" rel="noopener">github.com</a></li>
+                <li>Github: <a href="https://github.com/Te1vel/book-notes-vault" target="_blank" rel="noopener">github.com</a></li>
                 <li>Email: <a href="">c.ngabo@alustudent.com</a></li>
             </ul>
         </section>
@@ -164,7 +165,7 @@
 
     <footer class="site-header">
         <div class="container footer-inner">
-            <p>&copy; 2026 Book & Notes Vault. All right reserved.</p>
+        <p class="return"><a href="#dashboard">Return to Top</a></p>
         </div>
     </footer>
 

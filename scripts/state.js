@@ -21,9 +21,9 @@ class AppState {
         this.notify();
     }
     addRecord(record) {
-        record.id = 'book_${Date.now()}';
+        record.id = `book_${Date.now()}`;
         record.createdAt = new Date().toISOString();
-        record.updateAt = new Date().toISOString();
+        record.updatedAt = new Date().toISOString();
         this.records.unshift(record);
         this.setRecords(this.records);
     }

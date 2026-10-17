@@ -85,9 +85,9 @@ export function setupUI(state) {
                 if (state.sortField === 'pages') {
                     valA = Number(valA) || 0;
                     valB = Number(valB) || 0;
-                } else if (typeof valA === 'string') {
-                    valA = valA.toLowerCase();
-                    valB = String(valB).toLowerCase();
+                } else {
+                    valA = String(valA || '').toLowerCase();
+                    valB = String(valB || '').toLowerCase();
                 }
                 if (valA < valB) return state.sortDirection === 'asc' ? -1 : 1;
                 if (valA > valB) return state.sortDirection === 'asc' ? 1 : -1;

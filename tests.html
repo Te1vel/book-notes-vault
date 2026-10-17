@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Validator Unit Tests - Vault</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 800px;
+            margin: 40px;
+            padding: 0 20px;
+            line-height: 1.6;
+        }
+        .pass {
+            color: green;
+            font-weight: bold;
+        }
+        .fail {
+            color: red;
+            font-weight: bold;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vault Validator Test Suite</h1>
+    <ul id="test-results"></ul>
+    <script type="module">
+        import {
+            validateTitle, 
+            validateAuthor,
+            validatePages,
+            validateDate,
+            validateTag
+        } from './scripts/validators.js'
+
+        const tests = [
+            { name: "Valid title", fn: () => validateTitle("Clean Code") == true},
+            { name: "Title with leading space fails", fn: () => validateTitle("Clean") === false},
+            { name: "Valid author", fn: () => validateAuthor("Robert Martin") === true},
+            { name: "Valid page count", fn: () => validatePages("476") === true},
+            { name: "Invalid page count (negative)", fn: () => validatePages("-10") === false},
+            { name: "Valid date format", fn: () => validateDate("2026-09-29") === true},
+            { name: "Invalid date month", fn: () => validateDate("2026-13-01") === false},
+            { name: "Valid tag", fn: () => validateTag("Programming") === true}
+        ];
+        const container = document.getElementById('test-results');
+        test.forEach(t => {
+            const passed = t.fn();
+            const li = document.createElement('li');
+            li.innerHTML = `<span>${t.name}</span> <span class="${passed ? 'pass' : 'fail'}">${passed ? 'PASS' : 'FAIL'}</span`;
+            container.appendChild(li);
+        });
+    </script>
+</body>
+</html>

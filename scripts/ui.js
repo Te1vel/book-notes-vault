@@ -31,7 +31,7 @@ export function setupUI(state) {
 
     const readingCapInput = document.getElementById('reading-cap');
     const hoursEst = document.getElementById('hours-est');
-    const settingsMsg = document.getElementById('search-error');
+    const settingsMsg = document.getElementById('search-msg');
 
     function updateHoursest(pages) {
         if (!hoursEst) return;
@@ -65,10 +65,10 @@ export function setupUI(state) {
             else {
                 if (searchError) searchError.textContent = "";
                 filtered = filtered.filter(r => {
-                    const titleMatch = regex.test(record.title || '');
-                    const authorMatch = regex.test (record.author || '');
-                    const tagMatch = regex.test (record.tag || '');
-                    const pagesMatch = regex.test (record.pages || '');
+                    const titleMatch = regex.test(r.title || '');
+                    const authorMatch = regex.test (r.author || '');
+                    const tagMatch = regex.test (r.tag || '');
+                    const pagesMatch = regex.test (String(r.pages) || '');
                     return titleMatch || authorMatch || tagMatch || pagesMatch;
                 
                 });
@@ -121,6 +121,7 @@ export function setupUI(state) {
                             <button type="button" class="btn danger delete-btn" data-id="${record.id}" aria-label="Delete ${record.title}">Delete</button>
                         </td>                    
                     `;
+                    tbody.appendChild(tr);
                 });
             }
         }
@@ -179,7 +180,7 @@ export function setupUI(state) {
             const samplePages = [38, 22, 64, 28, 48, 76, 85];
 
             dayLabels.forEach((day, index) => {
-                const isWeeked = index = 5;
+                const isWeeked = index === 5;
                 const isPeak = index === 6;
                 const heightVal = sampleHeights[index];
                 const pageCount = samplePages[index];
@@ -193,7 +194,7 @@ export function setupUI(state) {
 
                 const barFill = document.createElement('div');
                 barFill.className = `bar-fill ${isWeeked ? 'highlight' : ''}`;
-                barFill.style.height = `${heightVal}&`;
+                barFill.style.height = `${heightVal}%`;
                 barFill.title = `${day}: ${pageCount} pages read`;
 
                 const label = document.createElement('span');
@@ -234,7 +235,7 @@ export function setupUI(state) {
         const btn = document.getElementById(id);
         if (btn) {
             btn.addEventListener('click', () => {
-                state.setsort(field);
+                state.setSort(field);
 
                 sortButtons.forEach(b => {
                     const otherBtn = document.getElementById(b.id);
@@ -325,7 +326,7 @@ export function setupUI(state) {
     if (tbody) {
         tbody.addEventListener('click', (e) => {
             const target = e.target;
-            const id = target.getAttribute('date-id');
+            const id = target.getAttribute('data-id');
             if (!id) return;
 
             if (target.classList.contains('delete-btn')) {

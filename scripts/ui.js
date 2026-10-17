@@ -5,7 +5,7 @@ import {
     validateTitle, validateAuthor, validatePages, validateDate, validateTag, hasDuplicateWords
 } from './validators.js'
 
-export function setupUi(state) {
+export function setupUI(state) {
     const tbody = document.getElementById('records-tbody');
     const statCount = document.getElementById('stat-count');
     const statSum = document.getElementById('stat-sum');
@@ -38,7 +38,7 @@ export function setupUi(state) {
         const hours = (Number(pages) / 30).toFixed(1);
         hoursEst.textContent = isNaN(hours) ? '0.0' :hours;
     }
-    if (readingcapInput && state.readingCap){
+    if (readingCapInput && state.readingCap){
         readingCapInput.value = state.readingCap;
         updateHoursest(state.readingCap);
     }
@@ -220,7 +220,7 @@ export function setupUi(state) {
     }
     if (caseToggle) {
         caseToggle.addEventListener('change', () => {
-            state.setSearch(searchInput ? searchInput.value : '', caseToggle.checked);
+            state.setSearch(SearchInput ? SearchInput.value : '', caseToggle.checked);
         });
     }
 

@@ -4,7 +4,7 @@ const CAP_KEY = 'app:reading_cap';
 export const loadRecords = () => {
     try {
         const data = localStorage.getItem(KEY);
-        return data ? JSON.perse(data) : [];
+        return data ? JSON.parse(data) : [];
     } catch (err) {
         console.error("Failed to load from storage:", err);
         return [];

@@ -45,7 +45,7 @@
 
         const tests = [
             { name: "Valid title", fn: () => validateTitle("Clean Code") == true},
-            { name: "Title with leading space fails", fn: () => validateTitle("Clean") === false},
+            { name: "Title with leading space fails", fn: () => validateTitle(" Clean") === false},
             { name: "Valid author", fn: () => validateAuthor("Robert Martin") === true},
             { name: "Valid page count", fn: () => validatePages("476") === true},
             { name: "Invalid page count (negative)", fn: () => validatePages("-10") === false},
@@ -54,7 +54,7 @@
             { name: "Valid tag", fn: () => validateTag("Programming") === true}
         ];
         const container = document.getElementById('test-results');
-        test.forEach(t => {
+        tests.forEach(t => {
             const passed = t.fn();
             const li = document.createElement('li');
             li.innerHTML = `<span>${t.name}</span> <span class="${passed ? 'pass' : 'fail'}">${passed ? 'PASS' : 'FAIL'}</span`;

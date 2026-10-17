@@ -1,3 +1,4 @@
+import { loadRecords, saveRecords, loadCap, savecap } from "./storage.js";
 class AppState {
     constructor() {
         this.records = loadRecords();

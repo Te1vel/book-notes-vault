@@ -272,7 +272,7 @@ export function setupUI(state) {
 
             if (typeof validateAuthor === 'function' && !validateTitle(author)) {
                 const authorErr = document.getElementById('author-error');
-                if (authorErr) authorErr.textContent = "Please enter a valid authoer name.";
+                if (authorErr) authorErr.textContent = "Please enter a valid author name.";
                 isValid = false;
             }
             if (typeof validatePages === 'function' && !validatePages(pages)) {

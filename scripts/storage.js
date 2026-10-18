@@ -20,4 +20,4 @@ export const saveRecords = (data) => {
 };
 
 export const loadCap = () => parseInt(localStorage.getItem(CAP_KEY), 10) || 1500;
-export const savecap = (cap) => localstorage.setItem(CAP_KEY, cap);
+export const savecap = (cap) => localStorage.setItem(CAP_KEY, cap);
